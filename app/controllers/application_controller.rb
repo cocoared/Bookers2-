@@ -1,6 +1,9 @@
 class ApplicationController < ActionController::Base
+  before_action :authenticate_user!, except: [:top]
   before_action :configure_permitted_parameters, if: :devise_controller?
 # devise利用の機能（ユーザ登録、ログイン認証など）が使われる前にconfigure_permitted_parametersメソッドが実行される
+
+ private
 
   def after_sign_up_path_for(resource)
     user_path(current_user)
@@ -10,11 +13,10 @@ class ApplicationController < ActionController::Base
     user_path(current_user)
   end
 
-  def sign_out_path_for(resource)
+  def after_sign_out_path_for(resource)
     root_path
   end
 
-  protected
 
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up, keys: [:name])
