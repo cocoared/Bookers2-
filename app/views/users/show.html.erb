@@ -1,13 +1,17 @@
+
 <div class="container">
   <div class="row">
     <div class="col-3">
-      <h2>ユーザー情報</h2>
-      <table class="table">
-        <tr><%= image_tag @user.get_profile_image(100, 100) %></tr>
-        <tr>
-          <th>名前</th>
-        </tr>
-      </table>
+      <h4><strong>ユーザー情報</strong></h4>
+      <%= render '/info', user: @user %>
+      <h4><strong>書籍の投稿</strong></h4>
+      <%#= form_with model: @book, method: :post local:true do |f| %>
+        <%#= f.label:タイトル %>
+        <%#= f.text_field:title %>
+        <%#= f.label:内容 %>
+        <%#= f.text_area:body %>
+        <%#= f.submit class: "btn btn-success", "投稿" %>
+      <%# end %>
     </div>
   </div>
 </div>
