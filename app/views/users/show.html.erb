@@ -3,15 +3,8 @@
   <div class="row">
     <div class="col-3">
       <h4><strong>ユーザー情報</strong></h4>
-      <%= render '/info', user: @user %>
-      <h4><strong>書籍の投稿</strong></h4>
-      <%#= form_with model: @book, method: :post local:true do |f| %>
-        <%#= f.label:タイトル %>
-        <%#= f.text_field:title %>
-        <%#= f.label:内容 %>
-        <%#= f.text_area:body %>
-        <%#= f.submit class: "btn btn-success", "投稿" %>
-      <%# end %>
+      <%= render 'info', user: @user %><br>
+      <%= render 'books/form', book: @book %>
     </div>
   </div>
 </div>
