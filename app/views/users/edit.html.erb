@@ -1,16 +1,17 @@
 <div class="container">
   <div class="row">
-    <div class="col mx-auto">
-      <h4>ユーザー情報編集</h4>
+    <div class="col-3 mx-auto">
+      <h4><strong>ユーザー情報編集</strong></h4>
       <%= form_with model: @user, local: true, method: :patch do |f| %>
         <%= f.label:名前 %><br>
         <%= f.text_field :name %><br>
         <%= f.label:Eメール %><br>
         <%= f.text_field :email %><br>
         <%= f.label:プロフィール画像 %><br>
-        <%= f.file_field :profile_image, accept: "image/*" %>
-
-        <%=f.submit "保存" %>
+        <%= f.file_field :profile_image, accept: "image/*" %><br>
+        <%= f.label:自己紹介文 %><br>
+        <%= f.text_area :introduction %><br>
+        <%= f.submit "保存" %>
       <% end %>
     </div>
   </div>

@@ -14,7 +14,7 @@ class UsersController < ApplicationController
     @book = Book.new
     @user = User.find(params[:id])
     @books = @user.books
-    
+
   end
 
   def edit
@@ -24,13 +24,13 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     @user.update(user_params)
-    redirect_to request.referer
+    redirect_to user_path(@user)
     flash[:notice] = "ユーザー情報を編集しました。"
   end
 
   private
   def user_params
-    params.require(:user).permit(:name, :introduction, :profile_image)
+    params.require(:user).permit(:name, :introduction,:email, :profile_image)
   end
 
 end
