@@ -1,2 +1,17 @@
-<h1>Users#edit</h1>
-<p>Find me in app/views/users/edit.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="col mx-auto">
+      <h4>ユーザー情報編集</h4>
+      <%= form_with model: @user, local: true, method: :patch do |f| %>
+        <%= f.label:名前 %><br>
+        <%= f.text_field :name %><br>
+        <%= f.label:Eメール %><br>
+        <%= f.text_field :email %><br>
+        <%= f.label:プロフィール画像 %><br>
+        <%= f.file_field :profile_image, accept: "image/*" %>
+
+        <%=f.submit "保存" %>
+      <% end %>
+    </div>
+  </div>
+</div>
