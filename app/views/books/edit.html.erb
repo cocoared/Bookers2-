@@ -1,2 +1,15 @@
-<h1>Books#edit</h1>
-<p>Find me in app/views/books/edit.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="col-2 px-0 mx-auto">
+      <h2>書籍の編集</h2>
+      <%= form_with model: @book, local: true, method: :patch do |f| %>
+        <%= f.label:タイトル %><br>
+        <%= f.text_field :title %><br>
+        <%= f.label:感想 %><br>
+        <%= f.text_area :body %><br>
+        <%= f.submit "保存" %>
+      <% end %>
+      <div class="float-right"><%= link_to "戻る", book_path(@book) %></div>
+    </div>
+  </div>
+</div>
