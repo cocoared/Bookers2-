@@ -21,6 +21,7 @@ class BooksController < ApplicationController
   def show
     @book = Book.find(params[:id])
     @newbook = Book.new
+    # @books = Book.all
     @user = @book.user
   end
 
@@ -32,6 +33,12 @@ class BooksController < ApplicationController
     @book = Book.find(params[:id])
     @book.update(book_params)
     redirect_to book_path(@book.id)
+  end
+
+  def destroy
+    @book = Book.find(params[:id])
+    @book.destroy
+    redirect_to user_path(current_user.id), notice: "書籍を削除しました"
   end
 
 
