@@ -1,6 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col-5 mx-auto">
+      <%= render 'error_message', book: @book %>
       <h2>書籍の編集</h2>
       <%= form_with model: @book, local: true, method: :patch do |f| %>
         <%= f.label:タイトル %><br>

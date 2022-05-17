@@ -1,6 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col-3 mx-auto">
+      <%= render 'error_message', user: @user %>
       <h4><strong>ユーザー情報編集</strong></h4>
       <%= form_with model: @user, local: true, method: :patch do |f| %>
         <%= f.label:名前 %><br>
