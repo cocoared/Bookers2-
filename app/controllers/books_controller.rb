@@ -10,6 +10,7 @@ class BooksController < ApplicationController
     @book.user_id = current_user.id
     @book.save
     redirect_to book_path(@book.id)
+    flash[:notice] = '書籍を投稿しました'
   end
 
   def index
@@ -32,6 +33,7 @@ class BooksController < ApplicationController
   def update
     @book = Book.find(params[:id])
     @book.update(book_params)
+    flash[:notice] = '書籍情報を編集しました。'
     redirect_to book_path(@book.id)
   end
 
