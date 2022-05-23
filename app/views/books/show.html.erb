@@ -32,6 +32,21 @@
           </tr>
         </tbody>
       </table>
+      <% @book_comments.each do |book_comment| %>
+        <div class="mb-2">
+          <%= book_comment.user.name %>
+          <%= book_comment.comment %>
+          <%= l book_comment.created_at %>
+        </div>
+      <% end %>
+        <div>
+          <% form_with(model:[@book,@book_comment], local: true) do |f| %>
+          <%= f.text_area :comment, size: "60xx3" %>
+          <%= f.submit "コメント投稿" %>
+          <% end %>
+        </div>
     </div>
+  </div>
+  <div class="row">
   </div>
 </div>
