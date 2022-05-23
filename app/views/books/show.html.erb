@@ -34,9 +34,9 @@
       </table>
       <% @book_comments.each do |book_comment| %>
         <div class="mb-2">
+          <%= l book_comment.created_at, format: :short %><br>
           <%= book_comment.user.name %>
-          <%= book_comment.comment %>
-          <%= l book_comment.created_at %>
+          <%= book_comment.comment %><br>
         </div>
       <% end %>
         <div>
