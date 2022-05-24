@@ -26,7 +26,7 @@ class BooksController < ApplicationController
   def show
     @book = Book.find(params[:id])
     @newbook = Book.new
-    # @books = Book.all
+    @books = Book.all
     @user = @book.user
     @book_comment = BookComment.new
     @book_comments = @book.book_comments
@@ -35,7 +35,6 @@ class BooksController < ApplicationController
   def edit
     @book = Book.find(params[:id])
     if @book.user_id == current_user.id
-      render edit
     else
       redirect_to books_path
       flash[:alert] = "書籍の投稿者以外は書籍編集画面へアクセスできません。"
