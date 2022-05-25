@@ -9,14 +9,16 @@ class User < ApplicationRecord
   validates :email, presence: true
   has_many :favorites, dependent: :destroy
   has_many :book_comments, dependent: :destroy
-  
+
   # フォローをした、されたの関係
   has_many :relationships, class_name:"Relationship", foreign_key: "follower_id", dependent: :destroy
   has_many :reverse_of_relationships, class_name:"Relationship", foreign_key: "followed_id", dependent: :destroy
-  
+
   #一覧画面で使う
-  has_many :followers, through: :reverse_of_relationships, source: :follower
   has_many :follows, through: :relationships, source: :followed
+  has_many :followers, through: :reverse_of_relationships, source: :follower
+    # through: :で通過するテーブルを指定する
+    # source: :でカラムを指定する
 
   def get_profile_image(width, height)
     unless profile_image.attached?
