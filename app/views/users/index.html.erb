@@ -7,22 +7,7 @@
     </div>
     <div class="col-md-8 offset-1">
       <h4>ユーザー一覧</h4>
-      <table class="table">
-        <thead>
-          <tr>
-            <th>プロフィール画像</th>
-            <th>ユーザー名</th>
-          </tr>
-        </thead>
-        <tbody>
-          <% @users.each do |user| %>
-          <tr>
-            <td><%= image_tag user.get_profile_image(40, 40) %></td>
-            <td><%= link_to user.name, user_path(user.id) %></td>
-          </tr>
-          <% end %>
-        </tbody>
-      </table>
+      <%= render 'follow', users: @users %>
     </div>
   </div>
 </div>

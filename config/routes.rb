@@ -3,8 +3,8 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   root to: 'homes#top'
   resources :users, only: [:index, :show, :edit, :update] do
-    resource :relationships, only: [:create, :destory]
-    get "follows" => "relationships#follows", as: "follows"
+    resource :relationships, only: [:create, :destroy]
+    get "followings" => "relationships#follows", as: "followings"
     get "followers" => "relationships#followers", as: "followers"
   end
 
